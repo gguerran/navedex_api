@@ -41,9 +41,7 @@ python manage.py runserver
 
 * **Data Params**
 
-  ```{
-	  email: "teste@teste.com", password: "123$#45"
-  }```
+  `{email: "teste@teste.com", password: "123$#45"}`
 
 * **Success Response:**
 
@@ -124,7 +122,8 @@ python manage.py runserver
 
   * **Code:** 200 OK <br />
     **Content:** `
-    ```[
+    ```
+    [
       {
         "id": 1,
         "name": "Projeto Teste",
@@ -193,7 +192,8 @@ python manage.py runserver
 
   * **Code:** 200 <br />
     **Content:**
-    ```{
+    ```
+    {
       "id": 1,
       "name": "Projeto Teste",
       "navers": [
@@ -236,16 +236,14 @@ python manage.py runserver
 
 * **Data Params**
 
-  ```{
-    "name": "Projeto Teste",
-    "navers": [1]
-  }```
+  `{"name": "Projeto Teste", "navers": [1]}`
 
 * **Success Response:**
 
   * **Code:** 201 CREATED <br />
     **Content:**
-    ```{
+    ```
+    {
   "id": 1,
   "name": "Projeto Teste",
   "navers": [
@@ -288,10 +286,7 @@ python manage.py runserver
 
 * **Data Params**
 
-  ```{
-    "name": "Projeto Teste",
-    "navers": [1, 2]
-  }```
+  `{"name": "Projeto Teste", "navers": [1]}`
 
 * **Success Response:**
 
