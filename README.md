@@ -27,6 +27,14 @@ python manage.py runserver
 **Documentação da API**
 ----
 
+OBS.:
+	Através do software Insomnia, o arquivo `navedex_api_requests.json` pode ser importado e o ambiente
+	para testes estará configurado, de forma que todas as rotas da API estarão disponíveis.
+	Para as rotas que não são de autenticação, o token de acesso está pré-configurado nas preferências do ambiente,
+	de forma que ele atualiza sempre com a rota de login.
+	Nas preferências do ambiente também está configurada a base URL para ser usada em todas as rotas, e caso necessário,
+	alterá-la, automaticamente configura todo o ambiente
+
 **Signup**
 ----
   Cria usuário para fazer uso da API
