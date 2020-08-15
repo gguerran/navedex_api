@@ -152,7 +152,7 @@ python manage.py runserver
           }
         ]
       }
-    ]```
+    ]
  
 * **Error Response:**
 
