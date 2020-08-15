@@ -23,7 +23,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+
 **Documentação da API**
+----
 
 **Signup**
 ----
@@ -39,9 +41,9 @@ python manage.py runserver
 
 * **Data Params**
 
-  '{
+  ```{
 	  email: "teste@teste.com", password: "123$#45"
-  }'
+  }```
 
 * **Success Response:**
 
@@ -78,7 +80,7 @@ python manage.py runserver
 
 * **Data Params**
 
-  '{email: "teste@teste.com", password: "123$#45"}'
+  ```{email: "teste@teste.com", password: "123$#45"}```
 
 * **Success Response:**
 
@@ -122,7 +124,7 @@ python manage.py runserver
 
   * **Code:** 200 OK <br />
     **Content:** `
-    `[
+    ```[
       {
         "id": 1,
         "name": "Projeto Teste",
@@ -156,7 +158,7 @@ python manage.py runserver
           }
         ]
       }
-    ]`
+    ]```
  
 * **Error Response:**
 
@@ -191,7 +193,7 @@ python manage.py runserver
 
   * **Code:** 200 <br />
     **Content:**
-    `{
+    ```{
       "id": 1,
       "name": "Projeto Teste",
       "navers": [
@@ -203,7 +205,7 @@ python manage.py runserver
           "admission_date": "2019-07-25"
         }
       ]
-    }`
+    }```
     
 * **Error Response:**
 
@@ -234,16 +236,16 @@ python manage.py runserver
 
 * **Data Params**
 
-  `{
+  ```{
     "name": "Projeto Teste",
     "navers": [1]
-  }`
+  }```
 
 * **Success Response:**
 
   * **Code:** 201 CREATED <br />
     **Content:**
-    `{
+    ```{
   "id": 1,
   "name": "Projeto Teste",
   "navers": [
@@ -255,7 +257,7 @@ python manage.py runserver
       "admission_date": "2020-08-25"
     }
   ]
-}`
+}```
  
 * **Error Response:**
 
@@ -286,16 +288,16 @@ python manage.py runserver
 
 * **Data Params**
 
-  `{
+  ```{
     "name": "Projeto Teste",
     "navers": [1, 2]
-  }`
+  }```
 
 * **Success Response:**
 
   * **Code:** 200 OK <br />
     **Content:**
-    `{
+    ```{
       "id": 1,
       "name": "Gustavo",
       "birthdate": "1997-01-15"
@@ -311,7 +313,7 @@ python manage.py runserver
           "name": "Projeto Teste 02"
         }
       ]
-    },`
+    }```
  
 * **Error Response:**
 
@@ -397,7 +399,7 @@ python manage.py runserver
 
   * **Code:** 200 OK <br />
     **Content:** `
-    `[
+    ```[
       {
         "id": 1,
         "name": "Gustavo",
@@ -424,7 +426,7 @@ python manage.py runserver
             }
           ]
         },
-      ]`
+      ]```
  
 * **Error Response:**
 
@@ -459,7 +461,7 @@ python manage.py runserver
 
   * **Code:** 200 <br />
     **Content:**
-    `{
+    ```{
       "id": 1,
       "name": "Gustavo",
       "birthdate": "1997-01-15",
@@ -472,7 +474,7 @@ python manage.py runserver
           "name": "Projeto Teste"
         }
       ]
-    },`
+    }```
  
 * **Error Response:**
 
@@ -503,19 +505,19 @@ python manage.py runserver
 
 * **Data Params**
 
-  `{
+  ```{
 	  "name": "Gustavp",
 	  "birthdate": "1997-1-15",
 	  "job_role": "Django Developer",
 	  "admission_date"	: "2020-8-25",
 	  "projects": [1]
-  }`
+  }```
 
 * **Success Response:**
 
   * **Code:** 201 CREATED <br />
     **Content:**
-    `{
+    ```{
       "id": 1,
       "name": "Gustavo",
       "birthdate": "1997-01-15"
@@ -527,7 +529,7 @@ python manage.py runserver
           "name": "Projeto Teste"
         }
       ]
-    },`
+    },```
  
 * **Error Response:**
 
@@ -557,19 +559,19 @@ python manage.py runserver
 
 * **Data Params**
 
-  `{
+  ```{
 	  "name": "Gustavo",
 	  "birthdate": "1997-1-15",
 	  "job_role": "Django Developer",
 	  "admission_date"	: "2020-8-25",
 	  "projects": [1, 2]
-  }`
+  }```
 
 * **Success Response:**
 
   * **Code:** 200 OK <br />
     **Content:**
-    `{
+    ```{
       "id": 1,
       "name": "Gustavo",
       "birthdate": "1997-01-15"
@@ -585,7 +587,7 @@ python manage.py runserver
           "name": "Projeto Teste 02"
         }
       ]
-    },`
+    }```
  
 * **Error Response:**
 
