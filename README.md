@@ -123,33 +123,33 @@ python manage.py runserver
         "id": 1,
         "name": "Projeto Teste",
         "navers": [
-          {
-            "id": 1,
-            "name": "Gustavo",
-            "birthdate": "1997-02-15",
-            "job_role": "Node Developer",
-            "admission_date": "2019-07-25"
-          },
-          {
-            "id": 2,
-            "name": "Marcos",
-            "birthdate": "1997-02-15",
-            "job_role": "Django Developer",
-            "admission_date": "2020-07-23"
-          }
+		  {
+		    "id": 1,
+		    "name": "Gustavo",
+		    "birthdate": "1997-02-15",
+		    "job_role": "Node Developer",
+		    "admission_date": "2019-07-25"
+		  },
+		  {
+		    "id": 2,
+		    "name": "Marcos",
+		    "birthdate": "1997-02-15",
+		    "job_role": "Django Developer",
+		    "admission_date": "2020-07-23"
+		  }
         ]
       },
       {
         "id": 2,
         "name": "Projeto Teste 02",
         "navers": [
-          {
-            "id": 1,
-            "name": "Gustavo",
-            "birthdate": "1997-02-15",
-            "job_role": "Node Developer",
-            "admission_date": "2019-07-25"
-          }
+		  {
+		    "id": 1,
+		    "name": "Gustavo",
+		    "birthdate": "1997-02-15",
+		    "job_role": "Node Developer",
+		    "admission_date": "2019-07-25"
+		  }
         ]
       }
     ]
@@ -191,15 +191,15 @@ python manage.py runserver
       "id": 1,
       "name": "Projeto Teste",
       "navers": [
-        {
-          "id": 1,
-          "name": "Gustavo",
-          "birthdate": "1997-02-15",
-          "job_role": "Node Developer",
-          "admission_date": "2019-07-25"
-        }
-      ]
-    }```
+		{
+		  "id": 1,
+		  "name": "Gustavo",
+		  "birthdate": "1997-02-15",
+		  "job_role": "Node Developer",
+		  "admission_date": "2019-07-25"
+		}
+     ]
+    }
     
 * **Error Response:**
 
@@ -237,18 +237,18 @@ python manage.py runserver
     **Content:**
     ```
     {
-  "id": 1,
-  "name": "Projeto Teste",
-  "navers": [
-    {
-      "id": 1,
-      "name": "Gustavo",
-      "birthdate": "1997-01-15",
-      "job_role": "Django Developer",
-      "admission_date": "2020-08-25"
+    "id": 1,
+    "name": "Projeto Teste",
+    "navers": [
+	    {
+	      "id": 1,
+	      "name": "Gustavo",
+	      "birthdate": "1997-01-15",
+	      "job_role": "Django Developer",
+	      "admission_date": "2020-08-25"
+	    }
+    	]
     }
-  ]
-}```
  
 * **Error Response:**
 
@@ -291,16 +291,16 @@ python manage.py runserver
       "job_role": "Django Developer",
       "admission_date": "2020-08-25",
       "projects": [
-        {
-          "id": 1,
-          "name": "Projeto Teste"
-        },
-        {
-          "id": 2,
-          "name": "Projeto Teste 02"
-        }
+		{
+		  "id": 1,
+		  "name": "Projeto Teste"
+		},
+		{
+		  "id": 2,
+		  "name": "Projeto Teste 02"
+		}
       ]
-    }```
+    }
  
 * **Error Response:**
 
@@ -393,10 +393,10 @@ python manage.py runserver
         "job_role": "Django Developer",
         "admission_date": "2020-08-25",
         "projects": [
-          {
-            "id": 1,
-            "name": "Projeto Teste"
-          }
+		  {
+		    "id": 1,
+		    "name": "Projeto Teste"
+		  }
         ]
         },
         {
@@ -406,13 +406,13 @@ python manage.py runserver
           "job_role": "Node Developer",
           "admission_date": "2020-07-30",
           "projects": [
-            {
-              "id": 1,
-              "name": "Projeto Teste"
-            }
+		    {
+		      "id": 1,
+		      "name": "Projeto Teste"
+		    }
           ]
-        },
-      ]```
+        }
+      ]
  
 * **Error Response:**
 
@@ -459,7 +459,7 @@ python manage.py runserver
           "name": "Projeto Teste"
         }
       ]
-    }```
+    }
  
 * **Error Response:**
 
@@ -495,7 +495,7 @@ python manage.py runserver
 	  "job_role": "Django Developer",
 	  "admission_date"	: "2020-8-25",
 	  "projects": [1]
-  }```
+  }
 
 * **Success Response:**
 
@@ -513,7 +513,7 @@ python manage.py runserver
           "name": "Projeto Teste"
         }
       ]
-    }```
+    }
  
 * **Error Response:**
 
@@ -548,7 +548,7 @@ python manage.py runserver
 	  "job_role": "Django Developer",
 	  "admission_date"	: "2020-8-25",
 	  "projects": [1, 2]
-  }```
+  }
 
 * **Success Response:**
 
@@ -570,7 +570,7 @@ python manage.py runserver
           "name": "Projeto Teste 02"
         }
       ]
-    }```
+    }
  
 * **Error Response:**
 
