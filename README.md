@@ -56,12 +56,7 @@ python manage.py runserver
   OR
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {email:["Este campo não pode ser em branco."]}, }`
-
-  OR
-
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {password:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
 
 
 **Login**
@@ -162,8 +157,7 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
 
 **Show Project**
@@ -215,8 +209,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
 
 **Store Project**
@@ -260,8 +253,7 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
   
   OU
 
@@ -318,8 +310,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
   OU
 
@@ -426,8 +417,7 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
 
 **Show Navers**
@@ -479,8 +469,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
 
 **Store Navers**
@@ -524,13 +513,12 @@ python manage.py runserver
           "name": "Projeto Teste"
         }
       ]
-    },```
+    }```
  
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
   
   OU
 
@@ -592,8 +580,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
 
   OU
 
@@ -636,5 +623,4 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
