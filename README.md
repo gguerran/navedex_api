@@ -27,6 +27,14 @@ python manage.py runserver
 **Documentação da API**
 ----
 
+OBS.:
+	Através do software Insomnia, o arquivo `navedex_api_requests.json` pode ser importado e o ambiente
+	para testes estará configurado, de forma que todas as rotas da API estarão disponíveis.
+	Para as rotas que não são de autenticação, o token de acesso está pré-configurado nas preferências do ambiente,
+	de forma que ele atualiza sempre com a rota de login.
+	Nas preferências do ambiente também está configurada a base URL para ser usada em todas as rotas, e caso necessário,
+	alterá-la, automaticamente configura todo o ambiente
+
 **Signup**
 ----
   Cria usuário para fazer uso da API
@@ -51,12 +59,12 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {email:["Usuário com este e-mail já existe."]}, }`
+    **Content:** `{ error : {email:["User with this email already exists."]}, }`
 
   OR
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Login**
@@ -88,7 +96,7 @@ python manage.py runserver
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Project Index**
@@ -157,7 +165,7 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Show Project**
@@ -209,7 +217,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Store Project**
@@ -253,12 +261,12 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
   
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Update Navers**
@@ -310,12 +318,12 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Delete Project**
@@ -354,7 +362,7 @@ python manage.py runserver
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Naver Index**
@@ -417,7 +425,7 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "AAuthentication credentials were not provided."}}`
 
 
 **Show Navers**
@@ -469,7 +477,7 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Store Navers**
@@ -518,12 +526,12 @@ python manage.py runserver
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
   
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 **Update Navers**
 ----
@@ -580,12 +588,12 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Delete Navers**
@@ -623,4 +631,4 @@ python manage.py runserver
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
