@@ -49,7 +49,7 @@ OBS.:
 
 * **Data Params**
 
-  `{email: "teste@teste.com", password: "123$#45"}`
+  `{email: "test@test.com", password: "123$#45"}`
 
 * **Success Response:**
 
@@ -81,7 +81,7 @@ OBS.:
 
 * **Data Params**
 
-  ```{email: "teste@teste.com", password: "123$#45"}```
+  ```{email: "test@test.com", password: "123$#45"}```
 
 * **Success Response:**
 
