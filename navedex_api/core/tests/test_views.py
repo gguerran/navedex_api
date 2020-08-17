@@ -1,22 +1,22 @@
-# Importações Python
+# Imports Python
 import json
 from model_mommy import mommy
 
-# Importações DRF
+# Imports DRF
 from rest_framework import status
 from rest_framework.test import force_authenticate, APIRequestFactory
 
-# Importações Django
+# Imports Django
 from django.test import TestCase, Client
 from django.urls import reverse
 
-# Importações da app
+# Imports app
 from navedex_api.core.models import Naver, Project
 from navedex_api.core.serializers import NaverSerializer, ProjectSerializer
 from navedex_api.core.views import NaverViewSet, ProjectViewSet
 from navedex_api.usuario.models import User
 
-# API factory para as requests dos tests
+# API factory for requests of tests
 factory = APIRequestFactory()
 
 
@@ -31,21 +31,33 @@ class ProjectViewsTest(TestCase):
         self.naver1 = mommy.make(Naver)
         self.naver2 = mommy.make(Naver)
         self.naver3 = mommy.make(Naver)
-        
-        projeto1 = Project.objects.create(
+
+        self.projeto1 = Project.objects.create(
             name='Projeto 1',created_by=self.user
         )
-        projeto1.navers.add(self.naver1, self.naver2)
+        self.projeto1.navers.add(self.naver1, self.naver2)
 
-        projeto2 = Project.objects.create(
+        self.projeto2 = Project.objects.create(
             name='Projeto 2',created_by=self.user
         )
-        projeto2.navers.add(self.naver2, self.naver3)
+        self.projeto2.navers.add(self.naver2, self.naver3)
 
-        projeto3 = Project.objects.create(
+        self.projeto3 = Project.objects.create(
             name='Projeto 3',created_by=self.user
         )
-        projeto3.navers.add(self.naver1, self.naver3)
+        self.projeto3.navers.add(self.naver1, self.naver3)
+    
+    def test_create(self):
+        """ Teste de criação objetos pela rota """
+        self.data = {
+            'name': 'project_create',
+            'navers': [self.naver2.pk]
+        }
+        request = factory.post('/project/', self.data)
+        force_authenticate(request, user=self.user)
+        view = ProjectViewSet.as_view({'post':'create'})
+        response = view(request)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_get_all_project(self):
         """ Teste de retorno de todos os objetos """
@@ -60,31 +72,25 @@ class ProjectViewsTest(TestCase):
     
     def test_get_project(self):
         """ Teste de retorno de um objeto específico """
-        request = factory.get('/project/')
+        request = factory.get('/project/',)
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({'get': 'retrieve'})
         response = view(request, pk=1)
+        projects = Project.objects.get(pk=1)
+        serializer = ProjectSerializer(projects)
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_project_by_name(self):
         """ Teste de filtro por nome dos objetos """
-        request = factory.get('/project/')
+        request = factory.get('/project/', {'name': 'project_create'})
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({'get': 'list'})
-        response = view(request, name='Projeto%203')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_create(self):
-        """ Teste de criação objetos pela rota """
-        data = {
-            'name': 'project_create',
-            'navers': [self.naver2.pk]
-        }
-        request = factory.post('/project/', data)
-        force_authenticate(request, user=self.user)
-        view = ProjectViewSet.as_view({'post':'create'})
         response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        projects = Project.objects.filter(name='project_create')
+        serializer = ProjectSerializer(projects, many=True)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_update(self):
         """ Teste de atualização objetos pela rota """
@@ -129,6 +135,21 @@ class NaverViewsTest(TestCase):
         )
 
         Project.objects.create(name='test project',created_by=self.user)
+    
+    def test_create(self):
+        """ Teste de criação objetos pela rota """
+        data = {
+            "name": "Gustavo",
+            "birthdate": "1997-2-15",
+            "job_role": "Django Developer",
+            "admission_date": "2020-8-25",
+            "projects": ["1"]
+        }
+        request = factory.post('/naver/', data)
+        force_authenticate(request, user=self.user)
+        view = NaverViewSet.as_view({'post':'create'})
+        response = view(request)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_get_all_navers(self):
         """ Teste de retorno de todos os objetos """
@@ -147,46 +168,43 @@ class NaverViewsTest(TestCase):
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'retrieve'})
         response = view(request, pk=1)
+        naver = Naver.objects.get(pk=1)
+        serializer = NaverSerializer(naver)
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_navers_by_name(self):
         """ Teste de filtro por nome dos objetos """
-        request = factory.get('/naver/?name=Gustavo')
+        request = factory.get('/naver/', {'name': 'Gustavo'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
         response = view(request)
+        naver = Naver.objects.filter(name='Gustavo')
+        serializer = NaverSerializer(naver, many=True)
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_navers_by_admission_date(self):
         """ Teste de filtro por data de admissão dos objetos """
-        request = factory.get('/naver/?admission_date=2020-1-15')
+        request = factory.get('/naver/', {'admission_date': '2020-1-15'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
         response = view(request)
+        naver = Naver.objects.filter(admission_date='2020-1-15')
+        serializer = NaverSerializer(naver, many=True)
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_navers_by_job_role(self):
         """ Teste de filtro por cargo dos objetos """
-        request = factory.get('/naver/?job_role?Django%20Developer')
+        request = factory.get('/naver/', {'job_role': 'Django Developer'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
         response = view(request)
+        naver = Naver.objects.filter(job_role='Django Developer')
+        serializer = NaverSerializer(naver, many=True)
+        self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_create(self):
-        """ Teste de criação objetos pela rota """
-        data = {
-            "name": "Gustavo",
-            "birthdate": "1997-2-15",
-            "job_role": "Django Developer",
-            "admission_date": "2020-8-25",
-            "projects": ["1"]
-        }
-        request = factory.post('/naver/', data)
-        force_authenticate(request, user=self.user)
-        view = NaverViewSet.as_view({'post':'create'})
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
     
     def test_update(self):
         """ Teste de atualização objetos pela rota """
