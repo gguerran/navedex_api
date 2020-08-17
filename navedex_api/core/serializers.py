@@ -1,19 +1,19 @@
-# Importações DRF
+# DRF imports
 from rest_framework import serializers
 
-# Importações da app
+# App imports
 from navedex_api.core.models import Naver, Project
 
 class NaverListSerializer(serializers.ModelSerializer):
     """
-    Serializer de listargem de Navers (usado apenas para listar os navers nas
-    requisições de projeto).
+    Browser listing serializer (used only to list the browsers in the
+    project requirements).
     """
     class Meta:
         """
-        Meta classe do serializer
-            Define o model do serializer, a ordenação da listagem dos navers
-            e os campos que serão listados.
+        Serializer meta class
+            Defines the model of the serializer, the ordering of the list of
+            browsers and the fields to be listed.
         """
         model = Naver
         ordering = ['name']
@@ -22,16 +22,16 @@ class NaverListSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     """
-    Serializer dos projetos 
+    Projects serializers
     """
     navers = NaverListSerializer(many=True, read_only=True)
 
     class Meta:
         """
-        Meta classe do serializer
-            Define o model do serializer, a ordenação da listagem dos projetos,
-            os campos que serão requeridos e listados, e argumentos não
-            nomeados.
+        Serializer meta class
+            Defines the model of the serializer, the ordering of the list of 
+            projects, the fields that will be required and listed, and unnamed
+            arguments.
         """
         ordering = ['name']
         model = Project
@@ -40,7 +40,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         """
-        Função de criação do projeto
+        Project creation function
         """
         request = self.context.get('request')
         navers_data =  request.data.get('navers', [])
@@ -54,7 +54,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """
-        Função de atualização do projeto
+        Project update function
         """
         request = self.context.get('request')
         instance.name = request.data.get('name', '')
@@ -70,15 +70,14 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 class ProjectListSerializer(serializers.ModelSerializer):
     """
-    Serializer de listargem de Projeto (usado apenas para listar os projeto nas
-        requisições de navers)
+    Project listing serializer (used only to list projects in browser requests)
     """
 
     class Meta:
         """
-        Meta classe do serializer
-            Define o model do serializer, a ordenação da listagem dos proetos e
-            os campos que serão listados
+        Serializer meta class
+            Defines the model of the serializer, the ordering of the list of
+            projects and the fields to be listed
         """
         ordering = ['name']
         model = Project
@@ -87,16 +86,16 @@ class ProjectListSerializer(serializers.ModelSerializer):
 
 class NaverSerializer(serializers.ModelSerializer):
     """
-    Serializer dos navers 
+    Navers serializer
     """
     projects = ProjectListSerializer(many=True, read_only=True)
 
     class Meta:
         """
-        Meta classe do serializer
-            Define o model do serializer, a ordenação da listagem dos navers,
-            os campos que serão requeridos e listados, e argumentos não
-            nomeados.
+        Serializer meta class
+            Defines the model of the serializer, the ordering of the list of
+            browsers, the fields that will be required and listed, and unnamed
+            arguments.
         """
         ordering = ['name']
         model = Naver
@@ -105,7 +104,7 @@ class NaverSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """
-        Função de criação do naver
+        Naver create function
         """
         request = self.context.get('request')
         projects_data =  request.data.get('projects', [])
@@ -119,7 +118,7 @@ class NaverSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """
-        Função de atualização do naver
+        Naver update function
         """
         request = self.context.get('request')
         instance.name = request.data.get('name', '')

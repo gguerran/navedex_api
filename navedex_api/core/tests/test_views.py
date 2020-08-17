@@ -1,16 +1,16 @@
-# Imports Python
+# Python imports
 import json
 from model_mommy import mommy
 
-# Imports DRF
+# DRF imports
 from rest_framework import status
 from rest_framework.test import force_authenticate, APIRequestFactory
 
-# Imports Django
+# Django imports
 from django.test import TestCase, Client
 from django.urls import reverse
 
-# Imports app
+# App imports
 from navedex_api.core.models import Naver, Project
 from navedex_api.core.serializers import NaverSerializer, ProjectSerializer
 from navedex_api.core.views import NaverViewSet, ProjectViewSet
@@ -21,9 +21,9 @@ factory = APIRequestFactory()
 
 
 class ProjectViewsTest(TestCase):
-    """ Módulo de testes do model Projeto """
+    """ Project view testing module """
     def setUp(self):
-        """ Configurações da classe de testes """
+        """ Test class settings """
         self.user = User.objects.create(
             email='test@test.com', password='testword'
         )
@@ -48,7 +48,7 @@ class ProjectViewsTest(TestCase):
         self.projeto3.navers.add(self.naver1, self.naver3)
     
     def test_create(self):
-        """ Teste de criação objetos pela rota """
+        """ Test creating objects by route """
         self.data = {
             'name': 'project_create',
             'navers': [self.naver2.pk]
@@ -60,7 +60,7 @@ class ProjectViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_get_all_project(self):
-        """ Teste de retorno de todos os objetos """
+        """ Return test of all objects """
         request = factory.get('/project/')
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({'get': 'list'})
@@ -71,7 +71,7 @@ class ProjectViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_project(self):
-        """ Teste de retorno de um objeto específico """
+        """ Return test for a specific object """
         request = factory.get('/project/',)
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({'get': 'retrieve'})
@@ -82,7 +82,7 @@ class ProjectViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_project_by_name(self):
-        """ Teste de filtro por nome dos objetos """
+        """ Filter test by object name """
         request = factory.get('/project/', {'name': 'project_create'})
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({'get': 'list'})
@@ -93,7 +93,7 @@ class ProjectViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_update(self):
-        """ Teste de atualização objetos pela rota """
+        """ Test updating objects by route """
         data = {
             'name': 'project_update',
             'navers': [self.naver1.pk]
@@ -105,7 +105,7 @@ class ProjectViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete(self):
-        """ Teste de exclusão objetos pela rota """
+        """ Testing for deleting objects by route """
         request = factory.delete('/project/')
         force_authenticate(request, user=self.user)
         view = ProjectViewSet.as_view({"delete": "destroy"})
@@ -114,9 +114,9 @@ class ProjectViewsTest(TestCase):
 
 
 class NaverViewsTest(TestCase):
-    """ Módulo de testes do model Navers """
+    """ Naver view testing module """
     def setUp(self):
-        """ Configurações da classe de testes """
+        """ Test class settings """
         self.user = User.objects.create(
             email='test@test.com', password='testword'
         )
@@ -137,7 +137,7 @@ class NaverViewsTest(TestCase):
         Project.objects.create(name='test project',created_by=self.user)
     
     def test_create(self):
-        """ Teste de criação objetos pela rota """
+        """ Test creating objects by route """
         data = {
             "name": "Gustavo",
             "birthdate": "1997-2-15",
@@ -152,7 +152,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_get_all_navers(self):
-        """ Teste de retorno de todos os objetos """
+        """ Return test of all objects """
         request = factory.get('/naver/')
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
@@ -163,7 +163,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_naver(self):
-        """ Teste de retorno de um objeto específico """
+        """ Return test for a specific object """
         request = factory.get('/naver/')
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'retrieve'})
@@ -174,7 +174,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_get_navers_by_name(self):
-        """ Teste de filtro por nome dos objetos """
+        """ Filter test by object name """
         request = factory.get('/naver/', {'name': 'Gustavo'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
@@ -185,7 +185,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_navers_by_admission_date(self):
-        """ Teste de filtro por data de admissão dos objetos """
+        """ Filter test by admission date of objects """
         request = factory.get('/naver/', {'admission_date': '2020-1-15'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
@@ -196,7 +196,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_navers_by_job_role(self):
-        """ Teste de filtro por cargo dos objetos """
+        """ Filter test by object position """
         request = factory.get('/naver/', {'job_role': 'Django Developer'})
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({'get': 'list'})
@@ -207,7 +207,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_update(self):
-        """ Teste de atualização objetos pela rota """
+        """ Test updating objects by route """
         data = {
             "name": "Gustavo",
             "birthdate": "1997-2-15",
@@ -222,7 +222,7 @@ class NaverViewsTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete(self):
-        """ Teste de exclusão objetos pela rota """
+        """ Testing for deleting objects by route """
         request = factory.delete('/project/')
         force_authenticate(request, user=self.user)
         view = NaverViewSet.as_view({"delete": "destroy"})

@@ -1,16 +1,15 @@
-# Importações DRF
+# DRF imports
 from rest_framework import viewsets
 from rest_framework import permissions
 
-# Importações da app
+# App imports
 from navedex_api.core.models import  Naver, Project
 from navedex_api.core.serializers import NaverSerializer, ProjectSerializer
 
 
 class NaverViewSet(viewsets.ModelViewSet):
     """
-    Endpoint da API que permite que os Navers sejam visualizados, criados,
-    editados e excluídos.
+    API endpoint that allows Navers to be viewed, created, edited and deleted.
     """
     queryset = Naver.objects.all()
     serializer_class = NaverSerializer
@@ -19,22 +18,22 @@ class NaverViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """
-        Função do endpoint da API que configura o usuário autenticado como
-        criador do objeto
+        API endpoint function that configures the authenticated user as the
+        creator of the object
         """
         serializer.save(created_by=self.request.user)
     
     def get_queryset(self):
         """
-        Função do endpoint da API que configura as buscas para somente os
-        objetos criados pelo usuário autenticado
+        API endpoint function that sets up searches for only objects created by
+        the authenticated user
         """
         return Naver.objects.filter(created_by=self.request.user)
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
     """
-    Endpoint da API que permite que os Projetos sejam visualizados ou editados.
+    API endpoint that allows Projects to be viewed or edited.
     """
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
@@ -43,14 +42,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """
-        Função do endpoint da API que configura o usuário autenticado como
-        criador do objeto
+        API endpoint function that configures the authenticated user as the
+        creator of the object.
         """
         serializer.save(created_by=self.request.user)
     
     def get_queryset(self):
         """
-        Função do endpoint da API que configura as buscas para somente os
-        objetos criados pelo usuário autenticado
+        API endpoint function that sets up searches for only objects created by
+        the authenticated user
         """
         return Project.objects.filter(created_by=self.request.user)

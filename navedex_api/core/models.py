@@ -1,4 +1,4 @@
-# Importações Dango
+# Dango imports
 from django.db import models
 
 
@@ -22,14 +22,14 @@ class Naver(models.Model):
 
     class Meta:
         """
-        Meta classe do model
-        Define o nome no singular e no plural exibidos do model
+        Meta model class
+        Defines the displayed singular and plural name of the model
         """
         verbose_name = "naver"
         verbose_name_plural = "navers"
 
     def __str__(self):
-        """Retorna o nome do naver."""
+        """ Returns the name of the naver. """
         return self.name
 
 
@@ -50,14 +50,14 @@ class Project(models.Model):
 
     class Meta:
         """
-        Meta classe do model
-        Define o nome no singular e no plural exibidos do model e a ordem
-        padrão de listagem
+        Meta model class
+        Defines the displayed singular and plural name of the model and the
+        default listing order
         """
         verbose_name = "projeto"
         verbose_name_plural = "projetos"
         ordering = ('name',)
 
     def __str__(self):
-        """Retorna o nome do projeto."""
+        """ Returns the name of the project. """
         return self.name
