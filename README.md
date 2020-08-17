@@ -59,12 +59,12 @@ OBS.:
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {email:["Usuário com este e-mail já existe."]}, }`
+    **Content:** `{ error : {email:["User with this email already exists."]}, }`
 
   OR
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Login**
@@ -96,7 +96,7 @@ OBS.:
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Project Index**
@@ -165,7 +165,7 @@ OBS.:
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Show Project**
@@ -217,7 +217,7 @@ OBS.:
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Store Project**
@@ -261,12 +261,12 @@ OBS.:
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
   
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Update Navers**
@@ -318,12 +318,12 @@ OBS.:
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Delete Project**
@@ -362,7 +362,7 @@ OBS.:
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `
-    `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Naver Index**
@@ -425,7 +425,7 @@ OBS.:
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "AAuthentication credentials were not provided."}}`
 
 
 **Show Navers**
@@ -477,7 +477,7 @@ OBS.:
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
 
 **Store Navers**
@@ -526,12 +526,12 @@ OBS.:
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
   
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 **Update Navers**
 ----
@@ -588,12 +588,12 @@ OBS.:
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
 
   OU
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : {<field>:["Este campo não pode ser em branco."]}, }`
+    **Content:** `{ error : {<field>:["This field cannot be empty."]}, }`
 
 
 **Delete Navers**
@@ -631,4 +631,4 @@ OBS.:
   OU
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error :{"detail": "As credenciais de autenticação não foram fornecidas."}}`
+    **Content:** `{ error :{"detail": "Authentication credentials were not provided."}}`
